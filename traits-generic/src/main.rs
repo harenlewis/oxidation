@@ -1,5 +1,6 @@
-use std::ops::Mul;
+use std::ops;
 use std::fmt;
+use std::ops::Mul;
 
 trait Shape {
     fn area(&self) -> u32;
@@ -38,6 +39,30 @@ struct Square<T> {
 
 fn prnt<T: fmt::Debug>(x: T) {
     println!("{:?}", x);
+}
+
+struct X;
+struct Y;
+
+#[derive(Debug)]
+struct XY;
+#[derive(Debug)]
+struct YX;
+
+impl ops::Add<Y> for X {
+    type Output = XY;
+    
+    fn add(self, _rhs:Y) -> XY {
+        XY
+    }
+}
+
+impl ops::Add<X> for Y {
+    type Output = YX;
+
+    fn add(self, _rhs:X) -> YX {
+        YX
+    }
 }
 
 fn main() {
