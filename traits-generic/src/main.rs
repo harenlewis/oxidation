@@ -75,15 +75,18 @@ fn main() {
 
     let a = A(32);
     let b = B(10.5);
-    // let c = a;
+    let c = a;
 
-    println!("{:?} {:?}", a, b);
+    println!("{:?} {:?} {:?}", a, b, c);
 
     let s = Square{x: 10};
-    let s = Square{x: 1.0};
-    let s = Square{x: "Hello"};
-    let s = Square{x: 'c'};
+    let t = Square{x: 1.0};
+    let r = Square{x: "Hello"};
+    let u = Square{x: 'c'};
 
     prnt(10);
     prnt(String::from("Some string"));
+
+    println!("{:?}", X + Y);
+    println!("{:?}", Y + X);
 }
