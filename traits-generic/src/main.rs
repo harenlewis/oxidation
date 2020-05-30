@@ -1,4 +1,5 @@
 use std::ops::Mul;
+use std::fmt;
 
 trait Shape {
     fn area(&self) -> u32;
@@ -35,6 +36,10 @@ struct Square<T> {
     x: T
 }
 
+fn prnt<T: fmt::Debug>(x: T) {
+    println!("{:?}", x);
+}
+
 fn main() {
     println!("Traits / Generics");
 
@@ -53,4 +58,7 @@ fn main() {
     let s = Square{x: 1.0};
     let s = Square{x: "Hello"};
     let s = Square{x: 'c'};
+
+    prnt(10);
+    prnt(String::from("Some string"));
 }
